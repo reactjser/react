@@ -10,5 +10,7 @@ module.exports = {
     ecmaVersion: 2021,
   },
   plugins: [],
-  rules: {},
+  rules: {
+    'react-hooks/exhaustive-deps': 2,
+  },
 };
