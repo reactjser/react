@@ -21,7 +21,7 @@ const Counter = () => {
         <button
           className={styles.button}
           aria-label="Increment value"
-          onClick={dispatch.counter.increment}
+          onClick={() => dispatch.counter.increment()}
         >
           +
         </button>
@@ -29,7 +29,7 @@ const Counter = () => {
         <button
           className={styles.button}
           aria-label="Decrement value"
-          onClick={dispatch.counter.decrement}
+          onClick={() => dispatch.counter.decrement()}
         >
           -
         </button>
