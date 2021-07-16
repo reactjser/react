@@ -6,22 +6,20 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
+  text-align: center;
 }
 
-.nav-wrapper {
-  text-align: center;
-  .nav {
-    padding: 30px;
-    a {
-      font-weight: bold;
-      color: #2c3e50;
-      margin-right: 18px;
-      &:last-child {
-        margin-right: 0;
-      }
-      &.active {
-        color: #704cb6;
-      }
+.nav {
+  padding: 30px;
+  a {
+    font-weight: bold;
+    color: #2c3e50;
+    margin-right: 18px;
+    &:last-child {
+      margin-right: 0;
+    }
+    &.active {
+      color: #704cb6;
     }
   }
 }

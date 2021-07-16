@@ -6,11 +6,9 @@ import { routes } from './router';
 function App() {
   return (
     <>
-      <div className="nav-wrapper">
-        <div className="nav">
-          <NavLink to="/">Home</NavLink>
-          <NavLink to="/about">About</NavLink>
-        </div>
+      <div className="nav">
+        <NavLink to="/">Home</NavLink>
+        <NavLink to="/about">About</NavLink>
       </div>
       {useRoutes(routes)}
     </>
