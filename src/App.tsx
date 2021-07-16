@@ -1,7 +1,6 @@
 import React from 'react';
-import logo from './logo.svg';
+import logo from './assets/logo.svg';
 import Counter from './components/counter/Counter';
-import './App.scss';
 
 function App() {
   return (
@@ -34,11 +33,11 @@ function App() {
           <span>, </span>
           <a
             className="App-link"
-            href="https://redux-toolkit.js.org/"
+            href="https://rematchjs.org/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Redux Toolkit
+            Rematch
           </a>
           ,<span> and </span>
           <a
