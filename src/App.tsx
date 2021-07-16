@@ -1,10 +1,17 @@
 import React from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
+import { ReactQueryDevtools } from 'react-query/devtools';
 import { NavLink, useRoutes } from 'react-router-dom';
 
 import { routes } from './router';
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+    },
+  },
+});
 
 function App() {
   return (
@@ -16,6 +23,7 @@ function App() {
         <NavLink to="about">About</NavLink>
       </div>
       {useRoutes(routes)}
+      <ReactQueryDevtools />
     </QueryClientProvider>
   );
 }
