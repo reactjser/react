@@ -10,7 +10,7 @@ const routes: PartialRouteObject[] = [
     element: <Home />,
   },
   {
-    path: '/about',
+    path: 'about',
     element: <About />,
   },
 ];

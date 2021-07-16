@@ -1,11 +1,12 @@
+import { Button } from 'antd';
 import React from 'react';
 
-interface Props {}
-
-function About(props: Props) {
-  // const {} = props
-
-  return <div>About</div>;
+function About() {
+  return (
+    <div className="about">
+      <Button type="primary">About Page</Button>
+    </div>
+  );
 }
 
 export default About;
