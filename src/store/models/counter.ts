@@ -1,4 +1,5 @@
 import { createModel } from '@rematch/core';
+
 import { RootModel } from '.';
 
 const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));

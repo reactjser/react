@@ -1,56 +1,19 @@
 import React from 'react';
-import logo from './assets/logo.svg';
-import Counter from './components/counter/Counter';
+import { NavLink, useRoutes } from 'react-router-dom';
+
+import { routes } from './router';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://rematchjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Rematch
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
-    </div>
+    <>
+      <div className="nav-wrapper">
+        <div className="nav">
+          <NavLink to="/">Home</NavLink>
+          <NavLink to="/about">About</NavLink>
+        </div>
+      </div>
+      {useRoutes(routes)}
+    </>
   );
 }
 

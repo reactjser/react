@@ -1,4 +1,4 @@
-# vite + react + ts + antd + redux 模板
+# vite + react + ts + antd + redux + react-router 模板
 
 ## 使用
 

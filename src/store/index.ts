@@ -1,5 +1,6 @@
 import { init, RematchDispatch, RematchRootState } from '@rematch/core';
 import immerPlugin from '@rematch/immer';
+
 import { models, RootModel } from './models';
 
 export const store = init<RootModel>({

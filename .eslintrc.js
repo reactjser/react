@@ -9,8 +9,10 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 2021,
   },
-  plugins: [],
+  plugins: ['simple-import-sort'],
   rules: {
-    'react-hooks/exhaustive-deps': 2,
+    'react-hooks/exhaustive-deps': 'error',
+    'simple-import-sort/imports': 'error',
+    'simple-import-sort/exports': 'error',
   },
 };
