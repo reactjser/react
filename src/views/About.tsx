@@ -1,11 +1,53 @@
-import React from 'react';
+import { Pagination, Table } from 'antd';
+import dayjs from 'dayjs';
+import React, { useState } from 'react';
 import { useQuery } from 'react-query';
 
+import { Planets } from '../types/Planets';
+
+const columns = [
+  {
+    title: 'Name',
+    dataIndex: 'name',
+    key: 'name',
+  },
+  {
+    title: 'Population',
+    dataIndex: 'population',
+    key: 'population',
+  },
+  {
+    title: 'Terrain',
+    dataIndex: 'terrain',
+    key: 'terrain',
+  },
+  {
+    title: 'Created',
+    dataIndex: 'created',
+    key: 'created',
+    render: (val: string) => dayjs(val).format('YYYY-MM-DD'),
+  },
+  {
+    title: 'Edited',
+    dataIndex: 'edited',
+    key: 'edited',
+    render: (val: string) => dayjs(val).format('YYYY-MM-DD'),
+  },
+];
+
+const fetchPlanets = async (page: number) => {
+  const res = await fetch(`https://swapi.dev/api/planets/?page=${page}`);
+  return res.json();
+};
+
 function About() {
-  const { isLoading, error, data } = useQuery<any, Error>('repoData', () =>
-    fetch('https://api.github.com/repos/tannerlinsley/react-query').then(
-      (res) => res.json(),
-    ),
+  const [page, setPage] = useState(1);
+  const { isLoading, isFetching, error, data } = useQuery<Planets, Error>(
+    ['planets', page],
+    () => fetchPlanets(page),
+    {
+      keepPreviousData: true,
+    },
   );
 
   if (isLoading) return <div>Loading...</div>;
@@ -14,11 +56,30 @@ function About() {
 
   return (
     <div>
-      <h1>{data.name}</h1>
-      <p>{data.description}</p>
-      <strong>👀 {data.subscribers_count}</strong>{' '}
-      <strong>✨ {data.stargazers_count}</strong>{' '}
-      <strong>🍴 {data.forks_count}</strong>
+      {data && (
+        <>
+          <Table
+            style={{
+              width: 800,
+              margin: '0 auto',
+            }}
+            rowKey="name"
+            size="middle"
+            bordered={true}
+            pagination={false}
+            loading={isFetching}
+            dataSource={data.results}
+            columns={columns}
+          />
+          <Pagination
+            style={{ marginTop: 20 }}
+            showSizeChanger={false}
+            current={page}
+            total={data.count}
+            onChange={setPage}
+          />
+        </>
+      )}
     </div>
   );
 }
