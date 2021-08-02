@@ -2,8 +2,6 @@ import { createModel } from '@rematch/core';
 
 import { RootModel } from '.';
 
-const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
-
 export const counter = createModel<RootModel>()({
   state: {
     value: 0,
@@ -24,8 +22,14 @@ export const counter = createModel<RootModel>()({
   },
   effects: (dispatch) => ({
     async incrementAsync(payload: number) {
-      await delay(1000);
-      dispatch.counter.incrementByAmount(payload);
+      const res = await fetch('/addCount');
+      const data: {
+        code: number;
+        message: string;
+      } = await res.json();
+      if (data.code === 0) {
+        dispatch.counter.incrementByAmount(payload);
+      }
     },
   }),
 });

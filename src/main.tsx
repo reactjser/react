@@ -8,6 +8,11 @@ import { HashRouter } from 'react-router-dom';
 import App from './App';
 import { store } from './store';
 
+if (import.meta.env.DEV) {
+  const { worker } = await import('./mocks/browser');
+  worker.start();
+}
+
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
