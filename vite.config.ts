@@ -4,10 +4,13 @@ import { defineConfig } from 'vite';
 import reactRefresh from '@vitejs/plugin-react-refresh';
 import lessToJS from 'less-vars-to-js';
 import styleImport from 'vite-plugin-style-import';
+import { visualizer } from 'rollup-plugin-visualizer';
 
 const themeVariables = lessToJS(
   readFileSync(resolve(__dirname, './antd.customize.less'), 'utf8'),
 );
+
+const needAnalyze = process.env.analyze === 'true';
 
 export default defineConfig({
   plugins: [
@@ -39,5 +42,10 @@ export default defineConfig({
   },
   server: {
     port: 8000,
+  },
+  build: {
+    rollupOptions: {
+      plugins: [needAnalyze && visualizer({ open: true })],
+    },
   },
 });
