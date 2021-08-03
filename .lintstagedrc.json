@@ -1,4 +1,4 @@
 {
   "src/**/*.{ts,tsx}": ["eslint --fix", "bash -c tsc"],
-  "src/**/*.{ts,tsx,scss}": "prettier --write"
+  "src/**/*.{ts,tsx,scss,less,css}": "prettier --write"
 }

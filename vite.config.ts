@@ -7,7 +7,7 @@ import styleImport from 'vite-plugin-style-import';
 import { visualizer } from 'rollup-plugin-visualizer';
 
 const themeVariables = lessToJS(
-  readFileSync(resolve(__dirname, './antd.customize.less'), 'utf8'),
+  readFileSync(resolve(__dirname, './src/styles/antd.customize.less'), 'utf8'),
 );
 
 const needAnalyze = process.env.analyze === 'true';
